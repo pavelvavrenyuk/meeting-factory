@@ -1,16 +1,12 @@
 package com.custom.project.meetingfactory.web.controller;
 
-import com.custom.project.meetingfactory.entity.Employee;
+import com.custom.project.meetingfactory.persistence.model.Employee;
 import com.custom.project.meetingfactory.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Validated

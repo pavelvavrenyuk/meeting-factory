@@ -1,32 +1,31 @@
 package com.custom.project.meetingfactory.service;
 
-import com.custom.project.meetingfactory.dao.EmployeeRepository;
-import com.custom.project.meetingfactory.entity.Employee;
+import com.custom.project.meetingfactory.persistence.repository.EmployeeRepository;
+import com.custom.project.meetingfactory.persistence.model.Employee;
 import com.custom.project.meetingfactory.exception.EntityNotFoundException;
-import com.custom.project.meetingfactory.exception.WrongParameterValueException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeRepository employeeRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Employee> findAllOrderByLastName() {
         return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Employee findById(int id) {
-
-        if(!isIdCorrect(id)){
-            throw new WrongParameterValueException("Wrong employee id: "+ id +". It must be more then 0.");
-        }
 
         Optional<Employee> result = employeeRepository.findById(id);
         Employee employee;

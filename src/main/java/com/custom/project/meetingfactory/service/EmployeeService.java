@@ -1,6 +1,6 @@
 package com.custom.project.meetingfactory.service;
 
-import com.custom.project.meetingfactory.entity.Employee;
+import com.custom.project.meetingfactory.persistence.model.Employee;
 
 import java.util.List;
 
