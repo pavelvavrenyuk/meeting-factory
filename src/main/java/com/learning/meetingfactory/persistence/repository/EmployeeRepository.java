@@ -1,6 +1,6 @@
-package com.custom.project.meetingfactory.dao;
+package com.learning.meetingfactory.persistence.repository;
 
-import com.custom.project.meetingfactory.entity.Employee;
+import com.learning.meetingfactory.persistence.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

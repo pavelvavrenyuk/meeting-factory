@@ -1,4 +1,4 @@
-package com.custom.project.meetingfactory.web;
+package com.learning.meetingfactory.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
