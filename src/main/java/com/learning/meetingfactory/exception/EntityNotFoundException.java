@@ -1,4 +1,4 @@
-package com.custom.project.meetingfactory.exception;
+package com.learning.meetingfactory.exception;
 
 
 public class EntityNotFoundException extends RuntimeException {

@@ -1,6 +1,6 @@
-package com.custom.project.meetingfactory.persistence.repository;
+package com.learning.meetingfactory.persistence.repository;
 
-import com.custom.project.meetingfactory.persistence.model.Employee;
+import com.learning.meetingfactory.persistence.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
