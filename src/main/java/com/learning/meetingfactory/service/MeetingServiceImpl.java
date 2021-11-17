@@ -79,14 +79,14 @@ public class MeetingServiceImpl implements MeetingService {
     @Override
     public MeetingDto patch(MeetingDto meetingDto, int id) {
 
-        MeetingDto updatedMeeting = meetingRepository.findById(id)
+        MeetingDto updatedMeetingDto = meetingRepository.findById(id)
                 .map(meeting -> MeetingMapper.INSTANCE.updateMeeting(meetingDto, meeting))
                 .map(MeetingMapper.INSTANCE::toMeetingDto)
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format(ErrorMessages.MEETING_WITH_ID_DOES_NOT_EXIST, id))
                 );
 
-        return updatedMeeting;
+        return updatedMeetingDto;
     }
 
     @Override
