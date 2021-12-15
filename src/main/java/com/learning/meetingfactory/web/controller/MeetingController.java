@@ -3,11 +3,14 @@ package com.learning.meetingfactory.web.controller;
 import com.learning.meetingfactory.domain.dto.MeetingDto;
 import com.learning.meetingfactory.service.MeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Validated
 @RestController
 @RequestMapping("/api/meetings")
 public class MeetingController {
@@ -28,8 +31,8 @@ public class MeetingController {
         return ResponseEntity.ok(meetings);
     }
 
-    @PostMapping
-    public ResponseEntity<MeetingDto> addMeeting(@RequestBody MeetingDto meeting){
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<MeetingDto> addMeeting(/*@Valid*/ @RequestBody MeetingDto meeting){
 
         meeting = meetingService.create(meeting);
 

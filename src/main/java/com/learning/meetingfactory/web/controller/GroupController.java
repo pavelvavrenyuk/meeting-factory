@@ -1,6 +1,5 @@
 package com.learning.meetingfactory.web.controller;
 
-import com.learning.meetingfactory.domain.dto.EmployeeDto;
 import com.learning.meetingfactory.domain.dto.GroupDto;
 import com.learning.meetingfactory.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
@@ -39,7 +39,7 @@ public class GroupController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GroupDto> addGroup(@RequestBody GroupDto groupDto){
+    public ResponseEntity<GroupDto> addGroup(@Valid @RequestBody GroupDto groupDto){
 
         groupDto = groupService.create(groupDto);
 

@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +23,6 @@ public class CriterionDto {
     @NotBlank(message = "{criterion.name.mandatory}")
     private String name;
 
-    @NotEmpty(message = "{criterion.group.id.empty}")
+    @NotNull(message = "{criterion.group.id.empty}")
     private int groupId;
 }

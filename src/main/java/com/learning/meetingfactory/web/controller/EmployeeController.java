@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Validated
@@ -36,7 +37,7 @@ public class EmployeeController implements EmployeeControllerEndpoint {
 
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<EmployeeDto> addEmployee(@RequestBody EmployeeDto employee){
+    public ResponseEntity<EmployeeDto> addEmployee(@Valid @RequestBody EmployeeDto employee){
 
         employee = employeeService.create(employee);
 

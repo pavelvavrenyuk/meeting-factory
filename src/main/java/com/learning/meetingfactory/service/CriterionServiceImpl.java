@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,7 +50,7 @@ public class CriterionServiceImpl implements CriterionService {
     }
 
     @Override
-    public CriterionDto create(CriterionDto criterionDto) {
+    public CriterionDto create(@Valid CriterionDto criterionDto) {
 
         int groupId = criterionDto.getGroupId();
 
@@ -65,7 +66,7 @@ public class CriterionServiceImpl implements CriterionService {
     }
 
     @Override
-    public CriterionDto update(CriterionDto criterionDto, int id) {
+    public CriterionDto update(@Valid CriterionDto criterionDto, int id) {
         return patch(criterionDto, id);
     }
 

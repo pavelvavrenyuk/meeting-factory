@@ -1,7 +1,11 @@
 package com.learning.meetingfactory.persistence.model;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.*;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
@@ -9,23 +13,26 @@ import java.time.OffsetDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = "employee")
-@ToString(exclude = "employee")
+@EqualsAndHashCode(exclude = {"employee", "groupRecords"})
+@ToString(exclude = {"employee", "groupRecords"})
 @Entity
+@TypeDef(name = "json", typeClass = JsonStringType.class)
+
 public class Meeting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
-    //@NotBlank
-    //@JsonFormat(pattern = "dd-MM-yyyy")
-    @Column(name = "date")
     private OffsetDateTime date;
 
-//    @Column(name = "questions")
-//    private String questions;
+    private String questions;
+
+    private String agreements;
+
+    @Column(columnDefinition = "json")
+    @Type(type = "json")
+    private JsonNode groupRecords;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)

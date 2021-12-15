@@ -11,11 +11,14 @@ import com.learning.meetingfactory.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Validated
 @Transactional
 public class MeetingServiceImpl implements MeetingService {
 
@@ -56,7 +59,7 @@ public class MeetingServiceImpl implements MeetingService {
     }
 
     @Override
-    public MeetingDto create(MeetingDto meetingDto) {
+    public MeetingDto create(@Valid MeetingDto meetingDto) {
 
         int employeeId = meetingDto.getEmployeeId();
 
@@ -72,7 +75,7 @@ public class MeetingServiceImpl implements MeetingService {
     }
 
     @Override
-    public MeetingDto update(MeetingDto meetingDto, int id) {
+    public MeetingDto update(@Valid MeetingDto meetingDto, int id) {
         return patch(meetingDto, id);
     }
 

@@ -1,13 +1,14 @@
 package com.learning.meetingfactory.web.controller;
 
 import com.learning.meetingfactory.domain.dto.CriterionDto;
-import com.learning.meetingfactory.domain.dto.MeetingDto;
 import com.learning.meetingfactory.service.CriterionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Validated
@@ -31,8 +32,8 @@ public class CriterionController {
         return ResponseEntity.ok(criteria);
     }
 
-    @PostMapping
-    public ResponseEntity<CriterionDto> addCriterion(@RequestBody CriterionDto criterionDto){
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CriterionDto> addCriterion(@Valid @RequestBody CriterionDto criterionDto){
 
         criterionDto = criterionService.create(criterionDto);
 

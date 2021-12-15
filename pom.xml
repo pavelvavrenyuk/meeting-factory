@@ -87,6 +87,12 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!--Form DB migration and updates -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+
 		<!-- jquery jar -->
 		<dependency>
 			<groupId>org.webjars</groupId>

@@ -6,7 +6,8 @@ import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        uses = {GroupRecordMapper.class})
 public interface MeetingMapper {
 
     MeetingMapper INSTANCE = Mappers.getMapper(MeetingMapper.class);
